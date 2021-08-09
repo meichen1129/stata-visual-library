@@ -12,7 +12,7 @@
 * ------------------------------------------------------------------------------
 
     foreach format in shp dbf prj shx {
-        copy "https://github.com/worldbank/stata-visual-library/raw/master/Library/data/map-world.`format'" "map-world.`format'"
+        copy "https://github.com/worldbank/stata-visual-library/raw/master/Library/data/map-world.`format'" "map-world.`format'"  //
     }
 
     *Shapefiles 
@@ -24,7 +24,7 @@
     *Correct iso_a2
     use  world_shape, clear
     drop if iso_a2=="-99"
-
+ **cannot find the data of map-world.dta ?
     merge 1:1 iso_a2 using "https://github.com/worldbank/stata-visual-library/raw/master/Library/data/map-world.dta" ///
         , ///
         keep(1 3) nogen
